@@ -1,184 +1,96 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Users, GraduationCap, Briefcase, MapPin, FileText, CheckCircle, XCircle, Clock, Shield } from "lucide-react";
+
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import FeatureSection from "@/components/FeatureSection";
-import CTA from "@/components/CTA";
 import Stats from "@/components/Stats";
 import TestimonialCard from "@/components/TestimonialCard";
-import { Button } from "@/components/ui/button";
-import ComparisonSection from "@/components/ComparisonSection";
+import CTA from "@/components/CTA";
+import { Briefcase, GraduationCap, BookOpen, LineChart, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const { t } = useTranslation();
 
   const services = [
     {
-      title: "Immigration",
-      description: "Accompagnement personnalisé pour toutes vos démarches d'immigration et d'intégration dans votre pays d'accueil.",
-      icon: <MapPin size={24} />,
+      title: t('services.immigration'),
+      description: "Accompagnement personnalisé pour les démarches d'immigration et d'obtention de visas.",
+      icon: <Briefcase size={24} />,
       link: "/services/immigration"
     },
     {
-      title: "Formation",
-      description: "Création de CV et lettres de motivation adaptés aux standards professionnels avec des modèles personnalisés.",
-      icon: <FileText size={24} />,
+      title: t('services.training'),
+      description: "Formation linguistique et professionnelle adaptée aux besoins du marché du travail.",
+      icon: <GraduationCap size={24} />,
       link: "/services/formation"
     },
     {
-      title: "Coaching",
-      description: "Préparation aux entretiens d'embauche et développement des compétences professionnelles.",
-      icon: <Users size={24} />,
+      title: t('services.coaching'),
+      description: "Coaching personnalisé pour le développement professionnel et personnel.",
+      icon: <BookOpen size={24} />,
       link: "/services/coaching"
     },
     {
-      title: "Orientation Professionnelle",
-      description: "Conseil personnalisé pour orienter votre carrière selon vos compétences et le marché du travail.",
-      icon: <GraduationCap size={24} />,
+      title: t('services.professionalOrientation'),
+      description: "Orientation professionnelle et conseil en carrière pour maximiser votre potentiel.",
+      icon: <LineChart size={24} />,
       link: "/services/orientation"
     },
     {
-      title: "Recrutement",
-      description: "Accès aux offres d'emploi et mise en relation avec des entreprises qui recrutent dans votre domaine.",
-      icon: <Briefcase size={24} />,
+      title: t('services.recruitment'),
+      description: "Services de recrutement pour les entreprises à la recherche de talents internationaux.",
+      icon: <Users size={24} />,
       link: "/services/recrutement"
     }
   ];
 
-  const featuresImmigration = [
-    {
-      icon: <FileText size={24} />,
-      title: "Préparation du dossier",
-      description: "Nous vous guidons dans la préparation et la vérification de tous les documents nécessaires pour votre dossier d'immigration."
-    },
-    {
-      icon: <MapPin size={24} />,
-      title: "Suivi des procédures",
-      description: "Bénéficiez d'un suivi personnalisé de votre dossier avec des mises à jour régulières sur l'avancement de vos démarches."
-    },
-    {
-      icon: <Users size={24} />,
-      title: "Intégration locale",
-      description: "Nous vous aidons à vous intégrer dans votre pays d'accueil grâce à des conseils culturels et administratifs."
-    }
-  ];
-
-  const testimonials = [
+  const testimonialsData = [
     {
       name: "Sophie Martin",
-      role: "Immigrée au Canada",
-      testimonial: "Grâce à MigraPro, mon processus d'immigration au Canada s'est déroulé sans accroc. Leur équipe m'a accompagnée à chaque étape et je suis maintenant installée à Montréal avec un emploi stable.",
+      role: "Immigrante au Canada",
+      testimonial: "Grâce à MigraPro, j'ai pu réaliser mon rêve de vivre au Canada. Leur accompagnement a été précieux à chaque étape du processus.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&h=200"
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop"
     },
     {
       name: "Thomas Dubois",
-      role: "Développeur Web",
-      testimonial: "Le coaching professionnel de MigraPro a transformé ma carrière. J'ai gagné en confiance lors des entretiens et j'ai décroché un poste dans une entreprise internationale.",
+      role: "Professionnel en reconversion",
+      testimonial: "La formation professionnelle que j'ai suivie avec MigraPro m'a permis de me reconvertir et de trouver un emploi dans mon domaine de prédilection.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&h=200"
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
     },
     {
-      name: "Amina Benhaddou",
-      role: "Ingénieure",
-      testimonial: "Leur service de création de CV a fait toute la différence dans ma recherche d'emploi. Mon profil est désormais beaucoup plus visible auprès des recruteurs.",
+      name: "Amina Koné",
+      role: "Entrepreneure",
+      testimonial: "Le coaching personnalisé m'a donné les outils nécessaires pour lancer mon entreprise au Canada. Un investissement qui a complètement changé ma vie!",
       rating: 4,
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&h=200"
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=100&auto=format&fit=crop"
     }
   ];
 
   const stats = [
-    { value: "10k+", label: "Clients accompagnés" },
-    { value: "95%", label: "Taux de satisfaction" },
-    { value: "85%", label: "Dossiers acceptés" },
-    { value: "30+", label: "Pays d'expertise" }
+    { value: "2500+", label: t('home.stats.clients') },
+    { value: "98%", label: t('home.stats.satisfaction') },
+    { value: "95%", label: t('home.stats.cases') },
+    { value: "10+", label: t('home.stats.countries') }
   ];
-
-  const comparisonData = {
-    withoutMembership: [
-      {
-        icon: <XCircle size={20} className="text-red-500" />,
-        text: "Papiers administratifs accablants et confusion juridique sans accompagnement d'expert."
-      },
-      {
-        icon: <XCircle size={20} className="text-red-500" />,
-        text: "Délais manqués et opportunités perdues en raison du manque de soutien."
-      },
-      {
-        icon: <XCircle size={20} className="text-red-500" />,
-        text: "Risques accrus de rejet de visa, de retards ou d'erreurs coûteuses."
-      },
-      {
-        icon: <XCircle size={20} className="text-red-500" />,
-        text: "Risque d'être victime d'arnaques à l'immigration, mettant en péril votre avenir au Canada."
-      }
-    ],
-    withMembership: [
-      {
-        icon: <CheckCircle size={20} className="text-green-500" />,
-        text: "Des avocats experts en immigration canadienne vous accompagnent à chaque étape."
-      },
-      {
-        icon: <CheckCircle size={20} className="text-green-500" />,
-        text: "Remboursement à 100 % si votre visa est refusé—votre succès est notre priorité."
-      },
-      {
-        icon: <CheckCircle size={20} className="text-green-500" />,
-        text: "Gagnez du temps et évitez les complications inutiles dans votre demande."
-      },
-      {
-        icon: <CheckCircle size={20} className="text-green-500" />,
-        text: "Emménagez au Canada avec confiance, clarté et un soutien total."
-      }
-    ]
-  };
 
   return (
     <div className="min-h-screen">
-      {/* Hero section */}
       <Hero
-        title="Votre partenaire pour un nouveau départ"
-        subtitle="Nous vous accompagnons dans toutes vos démarches d'immigration, de formation et d'intégration professionnelle."
-        ctaText="Tester mon éligibilité"
-        ctaLink="/eligibility"
-        secondaryCtaText="Nos services"
-        secondaryCtaLink="/services"
-        imageSrc="https://images.unsplash.com/photo-1524569970261-f3b491d7933b?auto=format&fit=crop&w=2000&q=80"
+        title={t('home.hero.title')}
+        subtitle={t('home.hero.subtitle')}
+        imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1170&auto=format&fit=crop"
       />
 
-      {/* Comparison Section - NEW */}
-      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Prenez 2 minutes pour sécuriser votre avenir</h2>
-            <p className="text-xl font-medium text-primary mb-4">Quels sont les enjeux ?</p>
-          </div>
-          
-          <ComparisonSection 
-            withoutMembershipTitle="Sans adhésion"
-            withMembershipTitle="Avec une adhésion"
-            withoutMembershipItems={comparisonData.withoutMembership}
-            withMembershipItems={comparisonData.withMembership}
-          />
-          
-          <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
-              <Link to="/eligibility">Tester mon éligibilité</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Services section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Nos Services</h2>
-            <p className="text-lg text-gray-600">
-              Découvrez notre gamme complète de services conçus pour vous accompagner dans votre projet d'immigration et de développement professionnel.
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+              {t('home.services.title')}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {t('home.services.description')}
             </p>
           </div>
 
@@ -196,33 +108,48 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Feature section - Immigration */}
       <FeatureSection
-        title="Immigration simplifiée"
-        subtitle="Notre équipe d'experts vous guide à travers le processus d'immigration complexe, en vous offrant un accompagnement sur mesure pour concrétiser votre projet de vie à l'étranger."
-        features={featuresImmigration}
-        imageSrc="https://images.unsplash.com/photo-1529386084422-5aded8767727?auto=format&fit=crop&w=1000&q=80"
+        title={t('home.immigration.title')}
+        subtitle={t('home.immigration.subtitle')}
+        features={[
+          {
+            icon: <Briefcase size={24} />,
+            title: "Évaluation d'admissibilité",
+            description: "Analyse complète de votre profil pour déterminer vos meilleures options d'immigration"
+          },
+          {
+            icon: <GraduationCap size={24} />,
+            title: "Préparation du dossier",
+            description: "Constitution méticuleuse de votre dossier d'immigration pour maximiser vos chances"
+          },
+          {
+            icon: <BookOpen size={24} />,
+            title: "Suivi personnalisé",
+            description: "Accompagnement pas à pas tout au long du processus d'immigration"
+          }
+        ]}
+        imageSrc="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=1000&auto=format&fit=crop"
       />
 
-      {/* Stats section */}
       <Stats
-        title="Notre impact en chiffres"
-        description="Des résultats qui parlent d'eux-mêmes. Découvrez comment nous avons aidé des milliers de personnes à réaliser leurs projets d'immigration et d'évolution professionnelle."
+        title={t('home.stats.title')}
+        description={t('home.stats.description')}
         stats={stats}
       />
 
-      {/* Testimonials section */}
-      <section className="py-24 bg-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ce que nos clients disent</h2>
-            <p className="text-lg text-gray-600">
-              Découvrez les témoignages de personnes qui ont fait confiance à nos services et ont réussi leur projet.
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">
+              {t('home.testimonials.title')}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {t('home.testimonials.description')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {testimonialsData.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
                 name={testimonial.name}
@@ -233,47 +160,39 @@ const Index = () => {
               />
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Button asChild variant="outline">
-              <Link to="/testimonials">Voir plus de témoignages</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Feature section - Career coaching */}
       <FeatureSection
-        title="Développez votre carrière"
-        subtitle="Nos services de coaching vous aident à révéler votre potentiel professionnel et à vous démarquer sur le marché du travail concurrentiel."
+        title={t('home.career.title')}
+        subtitle={t('home.career.subtitle')}
         features={[
           {
-            icon: <Briefcase size={24} />,
-            title: "Préparation aux entretiens",
-            description: "Des séances de simulation d'entretien personnalisées pour vous aider à gagner en confiance et à maîtriser votre discours."
+            icon: <Users size={24} />,
+            title: t('home.career.interviews'),
+            description: t('home.career.interviewsDesc')
           },
           {
-            icon: <FileText size={24} />,
-            title: "CV et Lettre de motivation",
-            description: "Création de documents professionnels qui mettent en valeur vos compétences et attirent l'attention des recruteurs."
+            icon: <LineChart size={24} />,
+            title: t('home.career.cv'),
+            description: t('home.career.cvDesc')
           },
           {
-            icon: <GraduationCap size={24} />,
-            title: "Bilan de compétences",
-            description: "Évaluation approfondie de vos compétences et identification des opportunités de carrière adaptées à votre profil."
+            icon: <BookOpen size={24} />,
+            title: t('home.career.skills'),
+            description: t('home.career.skillsDesc')
           }
         ]}
-        imageSrc="https://images.unsplash.com/photo-1573496358961-3c82861ab8f4?auto=format&fit=crop&w=1000&q=80"
+        imageSrc="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1000&auto=format&fit=crop"
         reversed={true}
       />
 
-      {/* CTA section */}
       <CTA
-        title="Prêt à démarrer votre projet?"
-        description="Faites le premier pas vers votre nouvelle vie. Testez votre éligibilité ou contactez-nous pour un accompagnement personnalisé."
-        buttonText="Tester mon éligibilité"
+        title={t('home.cta.title')}
+        description={t('home.cta.description')}
+        buttonText={t('home.cta.test')}
         buttonLink="/eligibility"
-        secondaryButtonText="Contactez-nous"
+        secondaryButtonText={t('home.cta.contact')}
         secondaryButtonLink="/contact"
       />
     </div>
