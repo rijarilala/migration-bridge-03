@@ -105,24 +105,27 @@ const Navbar = () => {
           <nav className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               link.dropdown ? (
-                <div key={link.name} className="relative group">
-                  <button className="px-3 py-2 flex items-center text-sm font-medium text-gray-700 hover:text-brand-600 transition-all duration-200">
-                    {link.name}
-                    <ChevronDown size={16} className="ml-1" />
-                  </button>
-                  <div className="absolute left-0 mt-1 w-48 bg-white shadow-lg rounded-md overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="py-2">
+                <div key={link.name} className="relative">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <button className="px-3 py-2 flex items-center text-sm font-medium text-gray-700 hover:text-brand-600 transition-all duration-200">
+                        {link.name}
+                        <ChevronDown size={16} className="ml-1" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="start" className="bg-white w-56 z-50">
                       {link.items?.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.path}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-600"
-                        >
-                          {item.name}
-                        </Link>
+                        <DropdownMenuItem key={item.name} asChild>
+                          <Link
+                            to={item.path}
+                            className="w-full cursor-pointer"
+                          >
+                            {item.name}
+                          </Link>
+                        </DropdownMenuItem>
                       ))}
-                    </div>
-                  </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               ) : (
                 <Link
@@ -210,7 +213,10 @@ const Navbar = () => {
                     <div className="mt-8">
                       <Button 
                         className="w-full bg-brand-600 hover:bg-brand-700 text-white"
-                        onClick={() => handleNavigate('/eligibility')}
+                        onClick={() => {
+                          handleNavigate('/eligibility');
+                          setIsMenuOpen(false);
+                        }}
                       >
                         {t('navigation.eligibility')}
                       </Button>
