@@ -22,6 +22,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'fr',
+    lng: 'fr', // Définir explicitement le français comme langue par défaut
     debug: process.env.NODE_ENV === 'development',
     interpolation: {
       escapeValue: false, // non nécessaire pour React

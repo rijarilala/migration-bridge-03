@@ -16,6 +16,8 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(lng);
   };
 
+  const currentLanguage = i18n.language.startsWith('fr') ? 'Français' : 'English';
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -24,11 +26,19 @@ const LanguageSwitcher = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => changeLanguage('fr')} className="cursor-pointer">
-          Français
+        <DropdownMenuItem 
+          onClick={() => changeLanguage('fr')} 
+          className="cursor-pointer font-semibold"
+          data-active={i18n.language.startsWith('fr')}
+        >
+          Français {i18n.language.startsWith('fr') && '✓'}
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => changeLanguage('en')} className="cursor-pointer">
-          English
+        <DropdownMenuItem 
+          onClick={() => changeLanguage('en')} 
+          className="cursor-pointer"
+          data-active={i18n.language.startsWith('en')}
+        >
+          English {i18n.language.startsWith('en') && '✓'}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
