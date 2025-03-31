@@ -24,7 +24,7 @@ const Hero = ({
     <div className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-secondary/70 to-background pt-16">
       {/* Background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full opacity-50 md:opacity-70">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-50 md:opacity-70">
           <img
             src={imageSrc}
             alt="Hero background"
