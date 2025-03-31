@@ -1,4 +1,3 @@
-
 import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import FeatureSection from "@/components/FeatureSection";
@@ -81,7 +80,7 @@ const Index = () => {
       <Hero
         title={t('home.hero.title')}
         subtitle={t('home.hero.subtitle')}
-        imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1170&auto=format&fit=crop"
+        imageSrc="/lovable-uploads/dec47764-da66-4e06-994d-fd7295b61c3a.png"
       />
 
       <AboutSection />
