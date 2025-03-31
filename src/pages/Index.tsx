@@ -81,11 +81,7 @@ const Index = () => {
       <Hero
         title={t('home.hero.title')}
         subtitle={t('home.hero.subtitle')}
-        imageSrc="/lovable-uploads/65433e64-ebab-4dc7-9f50-3107b78e9345.png"
-        ctaText={t('home.hero.cta')}
-        ctaLink="/services"
-        secondaryCtaText={t('home.hero.ctaSecondary')}
-        secondaryCtaLink="/contact"
+        imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1170&auto=format&fit=crop"
       />
 
       <AboutSection />
