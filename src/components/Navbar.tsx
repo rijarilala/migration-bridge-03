@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -217,7 +218,7 @@ const Navbar = () => {
                         className="w-full bg-brand-600 hover:bg-brand-700 text-white"
                         onClick={() => handleNavigate('/eligibility')}
                       >
-                        Eligibility Test
+                        {t('navigation.eligibility')}
                       </Button>
                     </div>
                   </div>
