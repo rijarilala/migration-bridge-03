@@ -24,7 +24,7 @@ const Hero = ({
     <div className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-secondary/70 to-background pt-16">
       {/* Background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-50 md:opacity-70">
+        <div className="absolute top-0 right-0 w-full h-full opacity-50 md:opacity-70">
           <img
             src={imageSrc}
             alt="Hero background"
@@ -53,7 +53,16 @@ const Hero = ({
                 {subtitle}
               </p>
             </div>
-            {/* Suppression des boutons CTA */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" asChild className="text-base font-medium">
+                <a href={ctaLink}>{ctaText}</a>
+              </Button>
+              {secondaryCtaText && secondaryCtaLink && (
+                <Button size="lg" variant="outline" asChild className="text-base font-medium">
+                  <a href={secondaryCtaLink}>{secondaryCtaText}</a>
+                </Button>
+              )}
+            </div>
           </div>
           
           <div className="hidden md:block relative">
@@ -61,7 +70,7 @@ const Hero = ({
               <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary rounded-2xl rotate-3 opacity-20"></div>
               <div className="relative overflow-hidden rounded-xl shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1455541504462-57ebb2a9cec1?q=80&w=600&h=800&auto=format&fit=crop" 
+                  src="/lovable-uploads/65433e64-ebab-4dc7-9f50-3107b78e9345.png" 
                   alt="Famille heureuse immigrée au Canada"
                   className="w-full object-cover animate-float"
                 />
