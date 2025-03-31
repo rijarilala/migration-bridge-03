@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -52,6 +51,7 @@ const Navbar = () => {
   const handleNavigate = (path: string) => {
     navigate(path);
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
   };
 
   const navLinks = [
@@ -137,14 +137,16 @@ const Navbar = () => {
                 </Link>
               )
             ))}
-            <Link to="/eligibility">
-              <Button 
-                className="ml-4 bg-brand-600 hover:bg-brand-700 text-white" 
-                size="sm"
-              >
-                {t('navigation.eligibility')}
-              </Button>
-            </Link>
+            <Button 
+              className="ml-4 bg-brand-600 hover:bg-brand-700 text-white" 
+              size="sm"
+              onClick={() => {
+                navigate('/eligibility');
+                window.scrollTo(0, 0);
+              }}
+            >
+              {t('navigation.eligibility')}
+            </Button>
             <div className="ml-2">
               <LanguageSwitcher />
             </div>
@@ -213,12 +215,9 @@ const Navbar = () => {
                     <div className="mt-8">
                       <Button 
                         className="w-full bg-brand-600 hover:bg-brand-700 text-white"
-                        onClick={() => {
-                          handleNavigate('/eligibility');
-                          setIsMenuOpen(false);
-                        }}
+                        onClick={() => handleNavigate('/eligibility')}
                       >
-                        {t('navigation.eligibility')}
+                        Eligibility Test
                       </Button>
                     </div>
                   </div>
