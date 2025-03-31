@@ -5,6 +5,7 @@ import FeatureSection from "@/components/FeatureSection";
 import Stats from "@/components/Stats";
 import TestimonialCard from "@/components/TestimonialCard";
 import CTA from "@/components/CTA";
+import AboutSection from "@/components/AboutSection";
 import { Briefcase, GraduationCap, BookOpen, LineChart, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -82,6 +83,8 @@ const Index = () => {
         subtitle={t('home.hero.subtitle')}
         imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1170&auto=format&fit=crop"
       />
+
+      <AboutSection />
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
